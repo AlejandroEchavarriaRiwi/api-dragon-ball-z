@@ -8,7 +8,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const containerImg = document.querySelector(".container-img");
-const body = document.querySelector("body");
 let currentPage = 1;
 const charactersPerPage = 8;
 document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, void 0, function* () {

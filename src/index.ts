@@ -4,7 +4,6 @@ import {
 } from "./interfaces/dragonBallZInterface.js";
 
 const containerImg = document.querySelector(".container-img") as HTMLDivElement;
-const body = document.querySelector("body") as HTMLBodyElement;
 
 let currentPage = 1;
 const charactersPerPage = 8;
@@ -32,8 +31,6 @@ const loadCharacters = async (page: number) => {
         
         const characterCont = document.createElement("div") as HTMLDivElement;
         characterCont.classList.add("character-cont");
-
-
         const backgroundCont = document.createElement("div") as HTMLDivElement;
         const imagenCont = document.createElement("div") as HTMLDivElement;
         const informacion = document.createElement("div") as HTMLDivElement;
@@ -63,13 +60,10 @@ const loadCharacters = async (page: number) => {
 
         imagenCont.appendChild(image);
         informacion.appendChild(name);
-
         characterCont.appendChild(backgroundCont);
         backgroundCont.appendChild(imagenCont);
         characterCont.appendChild(informacion);
-
         containerImg.appendChild(characterCont);
-
         characterCont.addEventListener("click", (ev: Event) => {
             ev.preventDefault();
 
@@ -78,7 +72,6 @@ const loadCharacters = async (page: number) => {
 
             difuminado.className = "difuminado";
             cuadroInformacion.className = "cuadro_informacion";
-
             cuadroInformacion.appendChild(name.cloneNode(true));
             cuadroInformacion.appendChild(ki.cloneNode(true));
             cuadroInformacion.appendChild(maxki.cloneNode(true));
@@ -86,9 +79,7 @@ const loadCharacters = async (page: number) => {
             cuadroInformacion.appendChild(genero.cloneNode(true));
             cuadroInformacion.appendChild(descripcion.cloneNode(true));
             cuadroInformacion.appendChild(afiliacion.cloneNode(true));
-
             difuminado.appendChild(cuadroInformacion);
-
             document.body.appendChild(difuminado);
 
             difuminado.style.position = 'fixed';
@@ -103,9 +94,7 @@ const loadCharacters = async (page: number) => {
         
             difuminado.style.top = `${scrollY + windowHeight - difuminadoHeight}px`;
 
-        
             document.body.style.overflow = 'hidden';
-
             difuminado.addEventListener('click', (ev) => {
                 if (ev.target === difuminado) {
                     difuminado.remove();
@@ -119,7 +108,6 @@ const loadCharacters = async (page: number) => {
 const createPaginationButtons = () => {
     const paginationContainer = document.createElement("div") as HTMLDivElement;
     paginationContainer.className = "pagination-container";
-
     const prevButton = document.createElement("button") as HTMLButtonElement;
     prevButton.innerText = "Anterior";
     prevButton.addEventListener("click", () => {
