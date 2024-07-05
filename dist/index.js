@@ -23,22 +23,20 @@ document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, vo
         imagenCont.classList.add("imagenCont");
         informacion.classList.add("informacion");
         // Crear y asignar elementos para la imagen y la información del personaje
-        const name = document.createElement("h4");
+        const name = document.createElement("p");
         const image = document.createElement("img");
         const ki = document.createElement("p");
         const maxki = document.createElement("p");
         const raza = document.createElement("p");
-        name.innerText = `Nombre: ${character.name}`;
+        name.innerHTML = `<span>Nombre:</span> ${character.name}`;
         image.src = character.image;
         image.className = "image";
         ki.innerText = `Ki: ${character.ki}`;
         maxki.innerText = `MaxKi: ${character.maxKi}`;
-        raza.innerText = `Raza: ${character.race}`;
+        raza.innerHTML = `<span>Raza:</span> ${character.race}`;
         // Añadir elementos a los contenedores correspondientes
         imagenCont.appendChild(image);
         informacion.appendChild(name);
-        informacion.appendChild(ki);
-        informacion.appendChild(maxki);
         informacion.appendChild(raza);
         // Añadir contenedores al contenedor principal del personaje
         characterCont.appendChild(backgroundCont);
