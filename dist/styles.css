@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'Saiyan-Sans';
+  src: url('./Saiyan-Sans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container-img{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 40px;
+  margin: 200px;
+  margin-top: 20px;
+}
+.character-cont{
+  background-color: grey;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
+}
+.backgroundCont{
+  width: 100%;
+  background-image: url(./desktop-wallpaper-planet-namek.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+}
+.imagenCont{
+  width: 100%;
+  height: 420px;
+  position: relative;
+  border-radius: 10px;
+}
+.imagenCont:hover{
+  transition: 300ms;
+   backdrop-filter: blur(10px); /* Desenfocar el fondo */
+  -webkit-backdrop-filter: blur(10px); /* Soporte para navegadores WebKit */
+}
+.imagenCont img{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: -30px;
+  height: 450px;
+}
+.character-cont:hover{
+  transition: 300ms;
+  transform: scale(1.1);
+  z-index: 100;
+}
+body{
+  margin: 0;
+  background: url(./background.jpg) no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: blur(5px); 
+  -webkit-backdrop-filter: blur(5px);
+}
+#logo{
+  width: 40%;
+  display: flex;
+  margin: 0 auto;
+}
+.informacion{
+  font-family: 'Saiyan-Sans'
+}
+
