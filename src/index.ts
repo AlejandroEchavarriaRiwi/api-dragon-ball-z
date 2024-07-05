@@ -4,6 +4,7 @@ import {
 } from "./interfaces/dragonBallZInterface.js";
 
 const containerImg = document.querySelector(".container-img") as HTMLDivElement;
+const body = document.querySelector("body") as HTMLBodyElement;
 
 document.addEventListener("DOMContentLoaded", async () => {
     const data: Item[] = await getAllCharacters();
@@ -29,13 +30,20 @@ document.addEventListener("DOMContentLoaded", async () => {
         const ki = document.createElement("p") as HTMLParagraphElement;
         const maxki = document.createElement("p") as HTMLParagraphElement;
         const raza = document.createElement("p") as HTMLParagraphElement;
+        const genero = document.createElement("p") as HTMLParagraphElement
+        const descripcion = document.createElement("p") as HTMLParagraphElement
+        const afiliacion = document.createElement("p") as HTMLParagraphElement
 
         name.innerHTML = `${character.name}`;
         image.src = character.image;
         image.className = "image";
         ki.innerText = `Ki: ${character.ki}`;
         maxki.innerText = `MaxKi: ${character.maxKi}`;
-        raza.innerHTML = `<span>Raza:</span> ${character.race}`;
+        raza.innerHTML = `Raza: ${character.race}`;
+        genero.innerText = `Genero: ${character.gender}`
+        descripcion.innerText = `Descripcion: ${character.description}`
+        afiliacion.innerText = `Afiliacion: ${character.affiliation}`
+
 
         // Añadir elementos a los contenedores correspondientes
         imagenCont.appendChild(image);
@@ -55,6 +63,21 @@ document.addEventListener("DOMContentLoaded", async () => {
             const difuminado = document.createElement("div") as HTMLDivElement
             const cuadro_informacion = document.createElement("div") as HTMLDivElement
 
+            //clases
+            difuminado.className = "difuminado"
+            cuadro_informacion.className = "cuadro_informacion"
+
+            //Añadir elementos a los contenedores correspondientes
+            cuadro_informacion.appendChild(name)
+            cuadro_informacion.appendChild(ki)
+            cuadro_informacion.appendChild(maxki)
+            cuadro_informacion.appendChild(raza)
+            cuadro_informacion.appendChild(genero)
+            cuadro_informacion.appendChild(descripcion)
+            cuadro_informacion.appendChild(afiliacion)
+
+            body.appendChild(difuminado)
+            difuminado.appendChild(cuadro_informacion)
 
 
         })

@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const containerImg = document.querySelector(".container-img");
+const body = document.querySelector("body");
 document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield getAllCharacters();
     data.forEach((character) => {
@@ -28,12 +29,18 @@ document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, vo
         const ki = document.createElement("p");
         const maxki = document.createElement("p");
         const raza = document.createElement("p");
+        const genero = document.createElement("p");
+        const descripcion = document.createElement("p");
+        const afiliacion = document.createElement("p");
         name.innerHTML = `${character.name}`;
         image.src = character.image;
         image.className = "image";
         ki.innerText = `Ki: ${character.ki}`;
         maxki.innerText = `MaxKi: ${character.maxKi}`;
-        raza.innerHTML = `<span>Raza:</span> ${character.race}`;
+        raza.innerHTML = `Raza: ${character.race}`;
+        genero.innerText = `Genero: ${character.gender}`;
+        descripcion.innerText = `Descripcion: ${character.description}`;
+        afiliacion.innerText = `Afiliacion: ${character.affiliation}`;
         // Añadir elementos a los contenedores correspondientes
         imagenCont.appendChild(image);
         informacion.appendChild(name);
@@ -48,6 +55,19 @@ document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, vo
             //crear contenedor para cada informacion extra de personaje
             const difuminado = document.createElement("div");
             const cuadro_informacion = document.createElement("div");
+            //clases
+            difuminado.className = "difuminado";
+            cuadro_informacion.className = "cuadro_informacion";
+            //Añadir elementos a los contenedores correspondientes
+            cuadro_informacion.appendChild(name);
+            cuadro_informacion.appendChild(ki);
+            cuadro_informacion.appendChild(maxki);
+            cuadro_informacion.appendChild(raza);
+            cuadro_informacion.appendChild(genero);
+            cuadro_informacion.appendChild(descripcion);
+            cuadro_informacion.appendChild(afiliacion);
+            body.appendChild(difuminado);
+            difuminado.appendChild(cuadro_informacion);
         });
     });
 }));
