@@ -52,22 +52,45 @@ document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, vo
         containerImg.appendChild(characterCont);
         characterCont.addEventListener("click", (ev) => {
             ev.preventDefault();
-            //crear contenedor para cada informacion extra de personaje
+            // Crear contenedor para la información adicional del personaje
             const difuminado = document.createElement("div");
-            const cuadro_informacion = document.createElement("div");
-            //clases
+            const cuadroInformacion = document.createElement("div");
+            // Asignar clases
             difuminado.className = "difuminado";
-            cuadro_informacion.className = "cuadro_informacion";
-            //Añadir elementos a los contenedores correspondientes
-            cuadro_informacion.appendChild(name);
-            cuadro_informacion.appendChild(ki);
-            cuadro_informacion.appendChild(maxki);
-            cuadro_informacion.appendChild(raza);
-            cuadro_informacion.appendChild(genero);
-            cuadro_informacion.appendChild(descripcion);
-            cuadro_informacion.appendChild(afiliacion);
-            body.appendChild(difuminado);
-            difuminado.appendChild(cuadro_informacion);
+            cuadroInformacion.className = "cuadro_informacion";
+            // Agregar elementos al cuadro de información
+            cuadroInformacion.appendChild(name.cloneNode(true));
+            cuadroInformacion.appendChild(ki.cloneNode(true));
+            cuadroInformacion.appendChild(maxki.cloneNode(true));
+            cuadroInformacion.appendChild(raza.cloneNode(true));
+            cuadroInformacion.appendChild(genero.cloneNode(true));
+            cuadroInformacion.appendChild(descripcion.cloneNode(true));
+            cuadroInformacion.appendChild(afiliacion.cloneNode(true));
+            // Agregar cuadro de información al difuminado
+            difuminado.appendChild(cuadroInformacion);
+            // Agregar difuminado al body como último hijo
+            document.body.appendChild(difuminado);
+            // Establecer estilos CSS para el difuminado
+            difuminado.style.position = 'fixed';
+            difuminado.style.left = '0';
+            difuminado.style.width = '100vw';
+            difuminado.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Fondo semi-transparente
+            // Calcular la posición top del difuminado
+            const scrollY = window.scrollY || window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const difuminadoHeight = difuminado.clientHeight;
+            // Ajustar posición top del difuminado para que aparezca en la parte inferior visible
+            difuminado.style.top = `${scrollY + windowHeight - difuminadoHeight}px`;
+            // Deshabilitar scroll del body mientras esté abierto el difuminado
+            document.body.style.overflow = 'hidden';
+            // Evento para cerrar el difuminado al hacer clic fuera de él
+            difuminado.addEventListener('click', (ev) => {
+                if (ev.target === difuminado) {
+                    difuminado.remove();
+                    // Restaurar scroll del body
+                    document.body.style.overflow = '';
+                }
+            });
         });
     });
 }));
