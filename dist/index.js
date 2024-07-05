@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, vo
         const ki = document.createElement("p");
         const maxki = document.createElement("p");
         const raza = document.createElement("p");
-        name.innerHTML = `<span>Nombre:</span> ${character.name}`;
+        name.innerHTML = `${character.name}`;
         image.src = character.image;
         image.className = "image";
         ki.innerText = `Ki: ${character.ki}`;
@@ -37,13 +37,18 @@ document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, vo
         // Añadir elementos a los contenedores correspondientes
         imagenCont.appendChild(image);
         informacion.appendChild(name);
-        informacion.appendChild(raza);
         // Añadir contenedores al contenedor principal del personaje
         characterCont.appendChild(backgroundCont);
         backgroundCont.appendChild(imagenCont);
         characterCont.appendChild(informacion);
         // Añadir contenedor principal del personaje al contenedor principal de la página
         containerImg.appendChild(characterCont);
+        characterCont.addEventListener("click", (ev) => {
+            ev.preventDefault();
+            //crear contenedor para cada informacion extra de personaje
+            const difuminado = document.createElement("div");
+            const cuadro_informacion = document.createElement("div");
+        });
     });
 }));
 const getAllCharacters = () => __awaiter(void 0, void 0, void 0, function* () {

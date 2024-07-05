@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const maxki = document.createElement("p") as HTMLParagraphElement;
         const raza = document.createElement("p") as HTMLParagraphElement;
 
-        name.innerHTML = `<span>Nombre:</span> ${character.name}`;
+        name.innerHTML = `${character.name}`;
         image.src = character.image;
         image.className = "image";
         ki.innerText = `Ki: ${character.ki}`;
@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Añadir elementos a los contenedores correspondientes
         imagenCont.appendChild(image);
         informacion.appendChild(name);
-        informacion.appendChild(raza);
 
         // Añadir contenedores al contenedor principal del personaje
         characterCont.appendChild(backgroundCont);
@@ -49,7 +48,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Añadir contenedor principal del personaje al contenedor principal de la página
         containerImg.appendChild(characterCont);
+
+        characterCont.addEventListener("click", (ev:Event) => {
+            ev.preventDefault();
+            //crear contenedor para cada informacion extra de personaje
+            const difuminado = document.createElement("div") as HTMLDivElement
+            const cuadro_informacion = document.createElement("div") as HTMLDivElement
+
+
+
+        })
     });
+
+
+
 });
 
 const getAllCharacters = async (): Promise<Item[]> => {
